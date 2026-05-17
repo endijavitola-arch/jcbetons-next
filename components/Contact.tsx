@@ -106,7 +106,7 @@ export default function Contact() {
               title="Krustpils iela 54F, Rīga karte"
               src="https://www.openstreetmap.org/export/embed.html?bbox=24.169%2C56.929%2C24.219%2C56.949&layer=mapnik&marker=56.939%2C24.194"
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer"
               allowFullScreen
               className="w-full h-52"
             />

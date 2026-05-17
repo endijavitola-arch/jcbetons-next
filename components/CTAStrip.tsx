@@ -1,32 +1,33 @@
 import Link from "next/link";
+import AnimateIn from "@/components/AnimateIn";
 
 export default function CTAStrip() {
   return (
     <section className="bg-[#EE7E1A] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <div>
-          <div className="text-white/70 text-sm font-semibold tracking-widest mb-2 uppercase">
-            Vai vajag betonu šonedēļ?
+          <AnimateIn direction="down">
+            <div className="text-white/70 text-sm font-semibold tracking-widest mb-2 uppercase">
+              Vai vajag betonu šonedēļ?
+            </div>
+          </AnimateIn>
+          <AnimateIn direction="down" delay={100}>
+            <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight" style={{ fontFamily: "var(--font-archivo)" }}>
+              Pasakiet kubikmetrus un adresi —<br />mēs jums atzvanam ar cenu un grafiku.
+            </h3>
+          </AnimateIn>
+        </div>
+        <AnimateIn delay={200}>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+            <Link href="tel:+37124209209" className="inline-flex items-center gap-2 bg-white text-[#EE7E1A] font-bold px-6 py-3.5 rounded hover:bg-white/90 transition-colors">
+              <PhoneIcon />
+              +371 24 209 209
+            </Link>
+            <Link href="/#kontakti" className="inline-flex items-center justify-center bg-[#0F1115] text-white font-bold px-6 py-3.5 rounded hover:bg-black transition-colors">
+              Rakstīt mums
+            </Link>
           </div>
-          <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight" style={{ fontFamily: "var(--font-archivo)" }}>
-            Pasakiet kubikmetrus un adresi —<br />mēs jums atzvanam ar cenu un grafiku.
-          </h3>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-          <Link
-            href="tel:+37124209209"
-            className="inline-flex items-center gap-2 bg-white text-[#EE7E1A] font-bold px-6 py-3.5 rounded hover:bg-white/90 transition-colors"
-          >
-            <PhoneIcon />
-            +371 24 209 209
-          </Link>
-          <Link
-            href="/#kontakti"
-            className="inline-flex items-center justify-center bg-[#0F1115] text-white font-bold px-6 py-3.5 rounded hover:bg-black transition-colors"
-          >
-            Rakstīt mums
-          </Link>
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );

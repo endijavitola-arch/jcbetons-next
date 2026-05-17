@@ -8,25 +8,45 @@ export default function ParallaxHero() {
 
   useEffect(() => {
     let raf: number;
+    let lastScrollY = 0;
+    let ticking = false;
+
     const onScroll = () => {
-      raf = requestAnimationFrame(() => {
-        if (imgRef.current) {
-          imgRef.current.style.transform = `translateY(${window.scrollY * 0.35}px)`;
-        }
-      });
+      // Read scroll position in the scroll handler (not inside rAF) to avoid forced reflow
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        raf = requestAnimationFrame(() => {
+          // Write-only inside rAF — no reads here, no forced reflow
+          if (imgRef.current) {
+            imgRef.current.style.transform = `translateY(${lastScrollY * 0.3}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div ref={imgRef} className="absolute inset-[-20%] will-change-transform">
+      {/* Extra height top/bottom gives room for the parallax translateY without layout shifts */}
+      <div
+        ref={imgRef}
+        className="absolute will-change-transform"
+        style={{ top: "-15%", bottom: "-15%", left: 0, right: 0 }}
+      >
         <Image
           src="/hero-truck.png"
           alt="JC Betons betona maisītājs un sūknis būvlaukumā"
           fill
           priority
+          fetchPriority="high"
           className="object-cover object-center"
           sizes="100vw"
         />

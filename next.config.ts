@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // Transpile packages that ship legacy ES5 to reduce bundle size
+  transpilePackages: ["@formspree/react", "@formspree/core"],
   async headers() {
     return [
       {

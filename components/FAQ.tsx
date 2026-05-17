@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnimateIn from "@/components/AnimateIn";
 
 interface FAQItem {
   q: string;
@@ -59,42 +60,60 @@ export default function FAQ() {
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <header className="mb-12">
-          <div className="flex items-center gap-3 text-xs tracking-widest font-mono mb-3" style={{ fontFamily: "var(--font-jetbrains)" }}>
-            <span className="font-bold text-[#EE7E1A]">05</span>
-            <span className="text-[#0F1115]/40">Biežāk uzdotie jautājumi</span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-[#0F1115] leading-tight mb-4" style={{ fontFamily: "var(--font-archivo)" }}>
-            Atbildes uz<br />biežākajiem jautājumiem.
-          </h2>
-          <p className="text-[#0F1115]/60 max-w-xl">
-            Ko klienti parasti vaicā pirms pasūtīt betonu. Ja jūsu jautājums nav atrodams — zvaniet vai rakstiet, atbildam darba dienas laikā.
-          </p>
+          <AnimateIn direction="down">
+            <div className="flex items-center gap-3 text-xs tracking-widest font-mono mb-3" style={{ fontFamily: "var(--font-jetbrains)" }}>
+              <span className="font-bold text-[#EE7E1A]">05</span>
+              <span className="text-[#0F1115]/40">Biežāk uzdotie jautājumi</span>
+            </div>
+          </AnimateIn>
+          <AnimateIn direction="down" delay={100}>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0F1115] leading-tight mb-4" style={{ fontFamily: "var(--font-archivo)" }}>
+              Atbildes uz<br />biežākajiem jautājumiem.
+            </h2>
+          </AnimateIn>
+          <AnimateIn direction="down" delay={200}>
+            <p className="text-[#0F1115]/60 max-w-xl">
+              Ko klienti parasti vaicā pirms pasūtīt betonu. Ja jūsu jautājums nav atrodams — zvaniet vai rakstiet, atbildam darba dienas laikā.
+            </p>
+          </AnimateIn>
         </header>
 
         <div className="max-w-3xl space-y-2">
-          {faqs.map((f, i) => (
-            <div key={i} className="border border-black/10 rounded-xl overflow-hidden">
-              <button
-                className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-[#0F1115] hover:bg-black/2 transition-colors"
-                onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}
-              >
-                <span>{f.q}</span>
-                <span
-                  className={`flex-shrink-0 w-6 h-6 rounded-full border border-current flex items-center justify-center text-[#EE7E1A] transition-transform ${
-                    open === i ? "rotate-45" : ""
-                  }`}
-                >
-                  +
-                </span>
-              </button>
-              {open === i && (
-                <div className="px-6 pb-5 text-[#0F1115]/65 leading-relaxed text-sm border-t border-black/5 pt-4">
-                  {f.a}
+          {faqs.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <AnimateIn key={i} delay={i * 60}>
+                <div className="border border-black/10 rounded-xl overflow-hidden">
+                  <button
+                    className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-[#0F1115] hover:bg-black/[0.02] transition-colors"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>{f.q}</span>
+                    <span
+                      className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#EE7E1A] flex items-center justify-center text-[#EE7E1A] font-light text-lg leading-none transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+
+                  {/* Smooth open using grid-template-rows trick */}
+                  <div
+                    className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+                    style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-6 pb-5 pt-4 text-[#0F1115]/65 leading-relaxed text-sm border-t border-black/5">
+                        {f.a}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              </AnimateIn>
+            );
+          })}
         </div>
       </div>
     </section>

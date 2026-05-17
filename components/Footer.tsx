@@ -15,6 +15,7 @@ const serviceLinks = [
   { href: "/grodi", label: "Grodi" },
   { href: "/betona-suknis", label: "Betona sūknis" },
   { href: "/cementa-java", label: "Cementa java" },
+  { href: "/betona-kalkulators", label: "Betona kalkulators" },
 ];
 
 const legalLinks = [

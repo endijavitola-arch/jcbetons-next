@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
 import Products from "@/components/Products";
 import Fleet from "@/components/Fleet";
 import About from "@/components/About";
@@ -10,7 +9,8 @@ import CTAStrip from "@/components/CTAStrip";
 import Footer from "@/components/Footer";
 import FloatingCall from "@/components/FloatingCall";
 
-// Defer heavy client components — they are below the fold and not needed for LCP
+// Defer all Client Components that are below the fold — reduces initial JS parse/eval
+const Stats = dynamic(() => import("@/components/Stats"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const Contact = dynamic(() => import("@/components/Contact"));
 

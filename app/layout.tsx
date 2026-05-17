@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Transportbetons Rīgā | Betona Piegāde | JC Betons",
     description:
       "Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.",
-    images: [{ url: "/hero-truck.png", width: 1200, height: 630 }],
+    images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
   },
   robots: { index: true, follow: true },
 };
@@ -67,7 +67,7 @@ const localBusinessSchema = {
   url: siteUrl,
   telephone: "+37124209209",
   email: "info@jcbetons.lv",
-  image: `${siteUrl}/hero-truck.png`,
+  image: `${siteUrl}/hero-truck.jpg`,
   logo: `${siteUrl}/logo-symbol.png`,
   priceRange: "€€",
   foundingDate: "2005",

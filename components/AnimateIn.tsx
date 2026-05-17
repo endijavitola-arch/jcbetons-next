@@ -24,12 +24,22 @@ export default function AnimateIn({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+
+    const setup = () => {
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+        { threshold }
+      );
+      observer.observe(el);
+      return () => observer.disconnect();
+    };
+
+    // Defer observer setup until browser is idle so it doesn't block LCP/FID
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(setup);
+      return () => cancelIdleCallback(id);
+    }
+    return setup();
   }, [threshold]);
 
   const hidden =

@@ -4,6 +4,14 @@ import ParallaxHero from "@/components/ParallaxHero";
 
 export default function Hero() {
   return (
+    <>
+      {/* Preload the LCP hero image — hoisted to <head> by Next.js App Router */}
+      <link
+        rel="preload"
+        as="image"
+        href="/hero-truck.jpg"
+        fetchPriority="high"
+      />
     <section className="relative min-h-screen flex items-center overflow-hidden" id="top">
       <ParallaxHero />
 
@@ -76,6 +84,7 @@ export default function Hero() {
         </svg>
       </Link>
     </section>
+    </>
   );
 }
 

@@ -7,6 +7,9 @@ export default function ParallaxHero() {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Skip parallax on mobile — no benefit on touch, saves CPU on low-power devices
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+
     let raf: number;
     let lastScrollY = 0;
     let ticking = false;
@@ -42,7 +45,7 @@ export default function ParallaxHero() {
         style={{ top: "-15%", bottom: "-15%", left: 0, right: 0 }}
       >
         <Image
-          src="/hero-truck.png"
+          src="/hero-truck.jpg"
           alt="JC Betons betona maisītājs un sūknis būvlaukumā"
           fill
           priority

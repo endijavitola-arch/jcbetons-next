@@ -11,6 +11,31 @@ export const metadata: Metadata = {
   description:
     "Betona sūknis ar 41 metru strēlu. Betona pumpēšana Rīgā un Pierīgā. Grūti pieejami objekti. Pasūtiet: +371 24 209 209",
   alternates: { canonical: "/betona-suknis" },
+  openGraph: {
+    title: "Betona Sūknis Rīgā | 41m Strēla | JC Betons",
+    description: "Betona sūknis ar 41 metru strēlu sasniedz daudzstāvu ēkas un grūti pieejamas vietas. Betona pumpēšana Rīgā un Pierīgā.",
+    url: "https://jcbetons.lv/betona-suknis",
+    images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Sākums", item: "https://jcbetons.lv" },
+    { "@type": "ListItem", position: 2, name: "Betona sūknis", item: "https://jcbetons.lv/betona-suknis" },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Cik liela ir betona sūkņa strēla?", acceptedAnswer: { "@type": "Answer", text: "Mūsu betona sūknim ir 41 metru strēla, kas ļauj sasniegt 10–12 stāvus augstu, kā arī objektus aiz žogiem vai šaurās pilsētas teritorijās, kur betona maisītājs nevar piebraukt." } },
+    { "@type": "Question", name: "Kāds ir minimālais betona apjoms sūknim?", acceptedAnswer: { "@type": "Answer", text: "Minimālais ekonomiski pamatotais apjoms sūkņa izsaukumam ir no 6 m³. Mazākus apjomus var apspriest individuāli." } },
+    { "@type": "Question", name: "Vai sūkni var izmantot ar fibrobetonu?", acceptedAnswer: { "@type": "Answer", text: "Jā. Mūsu betona sūknis ir piemērots arī fibrobetonam ar tērauda vai PP šķiedrām. Tas ir īpaši izdevīgi rūpnieciskām grīdām un laukumiem ar lielu slodzi." } },
+  ],
 };
 
 export default function BetonaSuknis() {
@@ -18,10 +43,12 @@ export default function BetonaSuknis() {
     <>
       <Header />
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         {/* Hero */}
         <section className="relative pt-32 pb-20 bg-[#0F1115] overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <Image src="/house-pump.jpg" alt="" fill className="object-cover" />
+            <Image src="/house-pump.jpg" alt="Betona sūknis pie mājas" fill className="object-cover" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
             <nav className="text-sm text-white/40 mb-6 flex items-center gap-2">

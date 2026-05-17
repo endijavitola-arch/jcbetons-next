@@ -18,6 +18,15 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Sākums", item: "https://jcbetons.lv" },
+    { "@type": "ListItem", position: 2, name: "Fibrobetons", item: "https://jcbetons.lv/fibrobetons" },
+  ],
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -33,15 +42,13 @@ export default function Fibrobetons() {
     <>
       <Header />
       <main>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
         {/* Hero */}
         <section className="relative pt-32 pb-20 bg-[#0F1115] overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <Image src="/foundation-pour.jpg" alt="" fill className="object-cover" />
+            <Image src="/foundation-pour.jpg" alt="Fibrobetona liešana pamatos" fill className="object-cover" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
             <nav className="text-sm text-white/40 mb-6 flex items-center gap-2">

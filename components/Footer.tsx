@@ -28,7 +28,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="sm:col-span-2 lg:col-span-1">
           <Link href="/" className="flex items-center gap-3 mb-4" aria-label="JC Betons">
-            <Image src="/logo-symbol.png" alt="" width={36} height={36} className="rounded" />
+            <Image src="/logo-symbol.png" alt="JC Betons logo" width={36} height={36} className="rounded" />
             <span className="flex flex-col leading-none">
               <span className="font-black text-white tracking-widest text-sm" style={{ fontFamily: "var(--font-archivo)" }}>JC&nbsp;BETONS</span>
               <span className="text-white/40 text-[10px] tracking-wider">Betona ražotne · Rīga</span>

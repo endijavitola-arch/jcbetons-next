@@ -11,6 +11,31 @@ export const metadata: Metadata = {
   description:
     "Kanalizācijas grodi 45/90 x 100/150/200. Ar dibeniem un vākiem. Piegāde ar manipulatoru Rīgā un Pierīgā. Pasūtiet: +371 24 209 209",
   alternates: { canonical: "/grodi" },
+  openGraph: {
+    title: "Grodi Rīgā | Ar Dibeniem un Vākiem | JC Betons",
+    description: "Kanalizācijas un akas grodi Ø45 un Ø90 cm ar dibeniem un vākiem. Piegāde ar manipulatoru — uzstādām vietā Rīgā un Pierīgā.",
+    url: "https://jcbetons.lv/grodi",
+    images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Sākums", item: "https://jcbetons.lv" },
+    { "@type": "ListItem", position: 2, name: "Grodi", item: "https://jcbetons.lv/grodi" },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Kādi grodu diametri ir pieejami?", acceptedAnswer: { "@type": "Answer", text: "Piedāvājam grodus divos standarta diametros: Ø 45 cm (mazākas akas un drenāža) un Ø 90 cm (standarta akas un kanalizācija). Pieejamie augstumi — 100, 150 un 200 cm." } },
+    { "@type": "Question", name: "Vai grodi tiek piegādāti ar dibeniem un vākiem?", acceptedAnswer: { "@type": "Answer", text: "Jā. Komplektā piedāvājam visus nepieciešamos elementus — dibeni groda apakšai, kā arī betona un čuguna vākus atbilstoši A15, B125 vai C250 slodzes klasei." } },
+    { "@type": "Question", name: "Kā notiek grodu piegāde un uzstādīšana?", acceptedAnswer: { "@type": "Answer", text: "Piegādājam ar kravas auto un manipulatoru — uzstādām grodus vietā Rīgā un Pierīgā. Nav vajadzīgs atsevišķs celtnis vai papildu tehnika." } },
+  ],
 };
 
 const grodTypes = [
@@ -23,10 +48,12 @@ export default function Grodi() {
     <>
       <Header />
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         {/* Hero */}
         <section className="relative pt-32 pb-20 bg-[#0F1115] overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <Image src="/well-rings.jpg" alt="" fill className="object-cover" />
+            <Image src="/well-rings.jpg" alt="Betona akas grodi" fill className="object-cover" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
             <nav className="text-sm text-white/40 mb-6 flex items-center gap-2">

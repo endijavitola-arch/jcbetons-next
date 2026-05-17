@@ -36,11 +36,14 @@ export const metadata: Metadata = {
   keywords: [
     "transportbetons Rīgā",
     "betona piegāde",
+    "betons Rīgā",
+    "betona ražotne",
+    "transportbetons cena",
+    "cementa java",
     "fibrobetons",
     "pamatu bloki",
     "grodi",
     "betona sūknis",
-    "betona ražotne",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -52,6 +55,12 @@ export const metadata: Metadata = {
     description:
       "Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.",
     images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Transportbetons Rīgā | Betona Piegāde | JC Betons",
+    description: "Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.",
+    images: ["/hero-truck.jpg"],
   },
   robots: { index: true, follow: true },
 };

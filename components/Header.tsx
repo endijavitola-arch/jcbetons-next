@@ -32,7 +32,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="JC Betons">
-          <Image src="/logo-symbol.png" alt="" width={36} height={36} className="rounded" />
+          <Image src="/logo-symbol.png" alt="JC Betons logo" width={36} height={36} className="rounded" />
           <span className="flex flex-col leading-none">
             <span
               className="font-black text-white tracking-widest text-sm"

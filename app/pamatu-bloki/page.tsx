@@ -11,6 +11,31 @@ export const metadata: Metadata = {
   description:
     "Pamatu bloki 90/120/240 × 60 cm. Dzelzsbetona konstrukcijas ar piegādi Rīgā un Pierīgā. Manipulators pieejams. Pasūtiet: +371 24 209 209",
   alternates: { canonical: "/pamatu-bloki" },
+  openGraph: {
+    title: "Pamatu Bloki Rīgā | Piegāde ar Manipulatoru | JC Betons",
+    description: "Pamatu bloki 90/120/240 × 60 cm. Dzelzsbetona konstrukcijas ar piegādi un uzstādīšanu ar manipulatoru Rīgā un Pierīgā.",
+    url: "https://jcbetons.lv/pamatu-bloki",
+    images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Sākums", item: "https://jcbetons.lv" },
+    { "@type": "ListItem", position: 2, name: "Pamatu bloki", item: "https://jcbetons.lv/pamatu-bloki" },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Kādi pamatu bloku izmēri ir pieejami?", acceptedAnswer: { "@type": "Answer", text: "Standarta dzelzsbetona pamatu bloki garumā 90 / 120 / 240 cm, platumā 60 cm, augstumā 30 vai 40 cm. Pēc projekta izgatavojam arī nestandarta izmērus jebkurai konstrukcijai." } },
+    { "@type": "Question", name: "Vai pamatu bloki tiek piegādāti ar manipulatoru?", acceptedAnswer: { "@type": "Answer", text: "Jā. Visi bloki tiek piegādāti ar kravas auto un manipulatoru, kas uzstāda tos vietā — nav vajadzīgs atsevišķs celtnis vai speciāls aprīkojums." } },
+    { "@type": "Question", name: "Vai var pasūtīt nestandarta pamatu blokus?", acceptedAnswer: { "@type": "Answer", text: "Jā. Pēc projekta izgatavojam nestandarta izmērus un formas. Sazinieties ar mums, un mēs apspriedīsim iespējas un termiņus." } },
+  ],
 };
 
 const sizes = [
@@ -25,10 +50,12 @@ export default function PamatuBloki() {
     <>
       <Header />
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         {/* Hero */}
         <section className="relative pt-32 pb-20 bg-[#0F1115] overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <Image src="/foundation-blocks.jpg" alt="" fill className="object-cover" />
+            <Image src="/foundation-blocks.jpg" alt="Dzelzsbetona pamatu bloki" fill className="object-cover" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
             <nav className="text-sm text-white/40 mb-6 flex items-center gap-2">

@@ -12,9 +12,9 @@ export default function CTAStrip() {
             </div>
           </AnimateIn>
           <AnimateIn direction="down" delay={100}>
-            <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight" style={{ fontFamily: "var(--font-archivo)" }}>
+            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight" style={{ fontFamily: "var(--font-archivo)" }}>
               Pasakiet kubikmetrus un adresi —<br />mēs jums atzvanam ar cenu un grafiku.
-            </h3>
+            </h2>
           </AnimateIn>
         </div>
         <AnimateIn delay={200}>

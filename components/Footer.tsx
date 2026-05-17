@@ -14,6 +14,7 @@ const serviceLinks = [
   { href: "/pamatu-bloki", label: "Pamatu bloki" },
   { href: "/grodi", label: "Grodi" },
   { href: "/betona-suknis", label: "Betona sūknis" },
+  { href: "/cementa-java", label: "Cementa java" },
 ];
 
 const legalLinks = [

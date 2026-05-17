@@ -15,7 +15,7 @@ const products = [
       ["Cementa java", "Mūrjava, sausā"],
       ["Speciālas receptes", "Pēc projekta"],
     ],
-    cta: { href: "/#kontakti", label: "Pieprasīt cenu" },
+    cta: { href: "/cementa-java", label: "Skatīt cementa javu" },
   },
   {
     tag: "02 / Piegāde",

@@ -9,5 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/pamatu-bloki`, lastModified: new Date("2026-05-17"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/grodi`, lastModified: new Date("2026-05-17"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/betona-suknis`, lastModified: new Date("2026-05-17"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/cementa-java`, lastModified: new Date("2026-05-17"), changeFrequency: "monthly", priority: 0.8 },
   ];
 }

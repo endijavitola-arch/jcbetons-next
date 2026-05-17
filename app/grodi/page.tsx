@@ -82,7 +82,7 @@ export default function Grodi() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <h2 className="text-3xl font-black text-[#0F1115] mb-8" style={{ fontFamily: "var(--font-archivo)" }}>
-              Pieejamie grodi
+              Betona Grodi: Izmēri un Komplektācija
             </h2>
             <div className="grid sm:grid-cols-2 gap-6 mb-12">
               {grodTypes.map((g) => (

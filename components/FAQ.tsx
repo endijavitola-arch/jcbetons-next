@@ -54,7 +54,7 @@ export default function FAQ() {
           </AnimateIn>
           <AnimateIn direction="down" delay={100}>
             <h2 className="text-4xl sm:text-5xl font-black text-[#0F1115] leading-tight mb-4" style={{ fontFamily: "var(--font-archivo)" }}>
-              Atbildes uz<br />biežākajiem jautājumiem.
+              Biežāk uzdotie jautājumi<br />par betonu Rīgā.
             </h2>
           </AnimateIn>
           <AnimateIn direction="down" delay={200}>

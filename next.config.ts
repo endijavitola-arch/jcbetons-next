@@ -35,19 +35,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
   // Transpile packages that ship legacy ES5 to reduce bundle size
   transpilePackages: ["@formspree/react", "@formspree/core"],
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: securityHeaders,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

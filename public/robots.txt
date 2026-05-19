@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privatuma-politika
+Disallow: /sikdatnes
+
+Sitemap: https://jcbetons.lv/sitemap.xml

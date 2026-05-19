@@ -3,13 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 
-type Shape = "plate" | "strip" | "column" | "cylinder";
+type Shape = "plate" | "strip" | "column" | "cylinder" | "stairs";
 
 interface Dims {
   length: string;
   width: string;
   height: string;
   diameter: string;
+  steps: string;
   count: string;
 }
 
@@ -18,6 +19,7 @@ const shapes: { id: Shape; label: string; desc: string; icon: string }[] = [
   { id: "strip", label: "Lentveida pamats", desc: "Sienu pamati, slokšņveida pamats", icon: "⊏" },
   { id: "column", label: "Taisnstūra kolonna", desc: "Kolonna, sija, siena", icon: "▯" },
   { id: "cylinder", label: "Apaļa kolonna", desc: "Apaļa kolonna, caurule, urbums", icon: "○" },
+  { id: "stairs", label: "Kāpnes", desc: "Betona kāpnes, platforma", icon: "⌐" },
 ];
 
 const concreteClasses = ["C8/10", "C12/15", "C16/20", "C20/25", "C25/30", "C30/37", "C35/45"];
@@ -32,6 +34,7 @@ function calcVolume(shape: Shape, dims: Dims): number {
   const w = numVal(dims.width);
   const h = numVal(dims.height);
   const d = numVal(dims.diameter);
+  const s = Math.max(1, Math.round(numVal(dims.steps)));
   const n = Math.max(1, Math.round(numVal(dims.count)));
 
   switch (shape) {
@@ -43,6 +46,10 @@ function calcVolume(shape: Shape, dims: Dims): number {
       return l * w * h * n;
     case "cylinder":
       return Math.PI * Math.pow(d / 2, 2) * h * n;
+    case "stairs":
+      // Wedge formula: 0.5 × steps × tread × riser × width
+      // l = tread depth per step, w = stair width, h = riser height per step
+      return 0.5 * s * l * h * w * n;
     default:
       return 0;
   }
@@ -83,7 +90,7 @@ function NumInput({
 export default function Calculator() {
   const [shape, setShape] = useState<Shape>("plate");
   const [concreteClass, setConcreteClass] = useState("C20/25");
-  const [dims, setDims] = useState<Dims>({ length: "", width: "", height: "", diameter: "", count: "1" });
+  const [dims, setDims] = useState<Dims>({ length: "", width: "", height: "", diameter: "", steps: "10", count: "1" });
 
   const set = (key: keyof Dims) => (v: string) => setDims((d) => ({ ...d, [key]: v }));
 
@@ -132,6 +139,13 @@ export default function Calculator() {
                 <NumInput label="Kopgarums" unit="m" value={dims.length} onChange={set("length")} placeholder="20.00" />
                 <NumInput label="Platums" unit="m" value={dims.width} onChange={set("width")} placeholder="0.40" />
                 <NumInput label="Dziļums / augstums" unit="m" value={dims.height} onChange={set("height")} placeholder="0.60" />
+              </>
+            ) : shape === "stairs" ? (
+              <>
+                <NumInput label="Pakāpienu skaits" unit="gab." value={dims.steps} onChange={set("steps")} placeholder="10" />
+                <NumInput label="Pakāpiena dziļums" unit="m" value={dims.length} onChange={set("length")} placeholder="0.28" />
+                <NumInput label="Pakāpiena augstums" unit="m" value={dims.height} onChange={set("height")} placeholder="0.17" />
+                <NumInput label="Kāpņu platums" unit="m" value={dims.width} onChange={set("width")} placeholder="1.20" />
               </>
             ) : (
               <>

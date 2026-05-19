@@ -16,6 +16,9 @@ const serviceLinks = [
   { href: "/betona-suknis", label: "Betona sūknis" },
   { href: "/cementa-java", label: "Cementa java" },
   { href: "/betona-kalkulators", label: "Betona kalkulators" },
+  { href: "/betona-klases", label: "Betona klases" },
+  { href: "/cenas", label: "Cenas" },
+  { href: "/blog", label: "Blogs" },
 ];
 
 const legalLinks = [
@@ -37,7 +40,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="text-white/40 text-sm leading-relaxed">
-            Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.
+            Sertificēta betona ražotne Rīgā. Ražojam un piegādājam betonu un betona izstrādājumus visā Pierīgā.
           </p>
         </div>
 

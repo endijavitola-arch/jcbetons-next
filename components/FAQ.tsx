@@ -48,7 +48,7 @@ export default function FAQ() {
         <header className="mb-12">
           <AnimateIn direction="down">
             <div className="flex items-center gap-3 text-xs tracking-widest font-mono mb-3" style={{ fontFamily: "var(--font-jetbrains)" }}>
-              <span className="font-bold text-[#EE7E1A]">05</span>
+              <span className="font-bold text-[#EE7E1A]">06</span>
               <span className="text-[#0F1115]/40">Biežāk uzdotie jautājumi</span>
             </div>
           </AnimateIn>

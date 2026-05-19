@@ -64,15 +64,17 @@ export default function About() {
           </AnimateIn>
           <ul className="grid sm:grid-cols-2 gap-3">
             {whyList.map((item, i) => (
-              <AnimateIn key={item} delay={300 + i * 60}>
-                <li className="flex items-center gap-2.5 text-sm text-[#0F1115]/80">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EE7E1A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="m9 12 2 2 4-4"/>
-                  </svg>
-                  {item}
-                </li>
-              </AnimateIn>
+              <li key={item}>
+                <AnimateIn delay={300 + i * 60}>
+                  <span className="flex items-center gap-2.5 text-sm text-[#0F1115]/80">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EE7E1A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    {item}
+                  </span>
+                </AnimateIn>
+              </li>
             ))}
           </ul>
         </div>

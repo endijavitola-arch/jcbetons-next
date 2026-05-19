@@ -13,7 +13,7 @@ export default function Contact() {
         {/* Form */}
         <div>
           <div className="flex items-center gap-3 text-xs tracking-widest font-mono mb-3" style={{ fontFamily: "var(--font-jetbrains)" }}>
-            <span className="font-bold text-[#EE7E1A]">06</span>
+            <span className="font-bold text-[#EE7E1A]">07</span>
             <span className="text-[#0F1115]/40">Kontakti</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-[#0F1115] leading-tight mb-3" style={{ fontFamily: "var(--font-archivo)" }}>
@@ -45,8 +45,9 @@ export default function Contact() {
                 <Field label="E-pasts *" name="epasts" type="email" placeholder="jusu@epasts.lv" required state={state} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#0F1115]/70 mb-1.5">Ziņojums</label>
+                <label htmlFor="field-zinojums" className="block text-sm font-medium text-[#0F1115]/70 mb-1.5">Ziņojums</label>
                 <textarea
+                  id="field-zinojums"
                   name="zinojums"
                   rows={4}
                   placeholder="Cik m³, kāda betona klase, adrese, vēlamais datums…"
@@ -93,9 +94,9 @@ export default function Contact() {
           <ContactBlock label="Darba laiks">
             <table className="text-sm text-[#0F1115]/70">
               <tbody>
-                <tr><td className="pr-6">Pirmd. – Piektd.</td><td className="font-medium text-[#0F1115]">8:00 – 17:00</td></tr>
-                <tr><td className="pr-6">Sestdiena</td><td className="font-medium text-[#0F1115]">8:00 – 17:00</td></tr>
-                <tr><td className="pr-6">Svētdiena</td><td className="text-red-500 font-medium">Slēgts</td></tr>
+                <tr><th scope="row" className="pr-6 font-normal text-left">Pirmd. – Piektd.</th><td className="font-medium text-[#0F1115]">8:00 – 17:00</td></tr>
+                <tr><th scope="row" className="pr-6 font-normal text-left">Sestdiena</th><td className="font-medium text-[#0F1115]">8:00 – 17:00</td></tr>
+                <tr><th scope="row" className="pr-6 font-normal text-left">Svētdiena</th><td className="text-red-500 font-medium">Slēgts</td></tr>
               </tbody>
             </table>
           </ContactBlock>
@@ -151,10 +152,12 @@ function Field({
   required?: boolean;
   state: ReturnType<typeof useForm>[0];
 }) {
+  const id = `field-${name}`;
   return (
     <div>
-      <label className="block text-sm font-medium text-[#0F1115]/70 mb-1.5">{label}</label>
+      <label htmlFor={id} className="block text-sm font-medium text-[#0F1115]/70 mb-1.5">{label}</label>
       <input
+        id={id}
         type={type}
         name={name}
         required={required}

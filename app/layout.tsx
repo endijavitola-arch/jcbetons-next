@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     title: "Transportbetons Rīgā | Betona Piegāde | JC Betons",
     description:
       "Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.",
-    images: [{ url: "/hero-truck.jpg", width: 1440, height: 960 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Transportbetons Rīgā | Betona Piegāde | JC Betons",
     description: "Sertificēta betona ražotne Rīgā kopš 2005. gada. Transportbetons, fibrobetons, java, pamatu bloki un grodi ar piegādi.",
-    images: ["/hero-truck.jpg"],
+    images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -115,7 +115,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <link rel="icon" href="/logo-symbol.png" />
       </head>
       <body className="min-h-screen flex flex-col">
         {children}
